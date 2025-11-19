@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="vi"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<!DOCTYPE html><html lang="vi"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com https://esm.sh https://generativelanguage.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com https://esm.sh; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trại Nấm 2 Hạnh - Nơi Thiên Nhiên Ban Tặng, Tình Yêu Vun Trồng</title>
@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="chat-style.css">
     <style>
         * {
             margin: 0;
@@ -646,40 +647,6 @@
             margin-top: 1rem;
         }
 
-        /* Scroll to Top Button */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, var(--medium-green), var(--primary-green));
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 20px rgba(45, 80, 22, 0.3);
-            z-index: 999;
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(45, 80, 22, 0.4);
-        }
-
-        .scroll-top i {
-            font-size: 1.5rem;
-        }
 
         /* Responsive */
         @media (max-width: 968px) {
@@ -789,6 +756,189 @@
 
             .btn {
                 justify-content: center;
+            }
+        }
+
+        /* Chatbot Styles */
+        .chat-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-gold), #e0b64d);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .chat-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .chat-icon i {
+            font-size: 1.8rem;
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 100px; /* Align with chat icon or adjust as needed */
+            right: 100px;
+            width: 350px;
+            height: 450px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(45, 80, 22, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1001;
+            transform: translateX(calc(100% + 100px)); /* Hidden by default */
+            transition: transform 0.4s ease-out;
+        }
+
+        .chat-window.open {
+            transform: translateX(0);
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--medium-green));
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h4 {
+            color: var(--white);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .chat-close:hover {
+            color: var(--light-green);
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background: var(--very-light-green);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 0.7rem 1rem;
+            border-radius: 15px;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background: var(--light-green);
+            color: var(--text-dark);
+            border-bottom-right-radius: 5px;
+        }
+
+        .message.ai {
+            align-self: flex-start;
+            background: var(--cream);
+            color: var(--text-medium);
+            border-bottom-left-radius: 5px;
+        }
+
+        .chat-input-container {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid var(--very-light-green);
+            background: var(--white);
+        }
+
+        .chat-input {
+            flex-grow: 1;
+            border: 1px solid var(--light-green);
+            border-radius: 20px;
+            padding: 0.7rem 1rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input:focus {
+            border-color: var(--medium-green);
+        }
+
+        .chat-send {
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .chat-send:hover {
+            background: var(--medium-green);
+            transform: scale(1.05);
+        }
+
+        .chat-send i {
+            font-size: 1.2rem;
+        }
+        
+        /* Responsive Chat */
+        @media (max-width: 768px) {
+            .chat-icon {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .chat-icon i {
+                font-size: 1.5rem;
+            }
+
+            .chat-window {
+                width: calc(100% - 40px);
+                height: 70vh;
+                bottom: 20px;
+                right: 20px;
+                transform: translateX(calc(100% + 40px));
+            }
+
+            .chat-window.open {
+                transform: translateX(0);
             }
         }
     </style>
@@ -1008,10 +1158,6 @@
         <p class="footer-tagline">Nơi Thiên Nhiên Ban Tặng, Tình Yêu Vun Trồng</p>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
-    </div>
 
     <script>
         // Intersection Observer for scroll animations
@@ -1033,23 +1179,6 @@
             observer.observe(section);
         });
 
-        // Scroll to top functionality
-        const scrollTopBtn = document.getElementById('scrollTop');
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1123,7 +1252,37 @@
             }
         });
     </script>
+    <script src="chat.js" type="module"></script>
 
+    <!-- Chatbot UI Elements -->
+    <div id="chat-icon" class="chat-icon">
+        <i class="fas fa-comment-dots"></i>
+    </div>
 
+    <div id="chat-window" class="chat-window">
+        <div class="chat-header">
+            <h4>Trợ lý AI Trại Nấm 2 Hạnh</h4>
+            <button id="chat-close" class="chat-close">&times;</button>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <!-- Messages will be appended here -->
+        </div>
+        <form id="chat-form" class="chat-input-container">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Hỏi về sản phẩm..." autocomplete="off">
+            <button type="submit" id="chat-send" class="chat-send">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+    <!-- End Chatbot UI Elements -->
+
+    <!-- Gemini Chat Scripts -->
+    <script type="module">
+        // Dynamically import the Google AI SDK
+        import { GoogleGenerativeAI } from "https://esm.sh/@google/generative-ai";
+        window.GoogleGenerativeAI = GoogleGenerativeAI;
+    </script>
+    <script src="config.js"></script>
+    <script src="gemini-chat.js"></script>
 
 </body></html>

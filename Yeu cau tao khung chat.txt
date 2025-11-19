@@ -1,0 +1,4 @@
+Hãy giúp tôi cải tiến webaap html js này @/poe-preview.html . 
+Thêm tính năng chat (biểu tượng ở góc bên phải, khi bấm vào mở ra cửa sổ chat với AI). Kết nối trực tiép với google gemini API. 
+Sử dụnh model gemini flash 2.5. Tôi sẽ điền API key ở 1 file khác bên ngoài. 
+**Thêm file js mới cho tính năng này**
