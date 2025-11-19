@@ -1,0 +1,1129 @@
+<!DOCTYPE html><html lang="vi"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trại Nấm 2 Hạnh - Nơi Thiên Nhiên Ban Tặng, Tình Yêu Vun Trồng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2d5016;
+            --medium-green: #4a7c2f;
+            --light-green: #a8d08d;
+            --very-light-green: #e8f5e0;
+            --cream: #fafdf7;
+            --text-dark: #1a3a0f;
+            --text-medium: #4a5d3f;
+            --accent-gold: #d4af37;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            line-height: 1.7;
+            color: var(--text-medium);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--medium-green) 100%);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(45, 80, 22, 0.15);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        /* Navigation Menu */
+        nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light-green);
+        }
+
+        .nav-menu li a:hover::after {
+            width: 60%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-8px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--light-green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .logo-text h1 {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo-text p {
+            color: var(--light-green);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .contact-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-header:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .contact-header i {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+        }
+
+        .contact-header a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--very-light-green) 0%, var(--white) 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(168, 208, 141, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(74, 124, 47, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-30px) translateX(20px);
+            }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-tagline {
+            font-size: 1.4rem;
+            color: var(--medium-green);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-medium);
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-icons {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .hero-icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .hero-icon-item:nth-child(1) { animation-delay: 0.8s; }
+        .hero-icon-item:nth-child(2) { animation-delay: 1s; }
+        .hero-icon-item:nth-child(3) { animation-delay: 1.2s; }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--medium-green), var(--primary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(45, 80, 22, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .icon-circle:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(45, 80, 22, 0.3);
+        }
+
+        .icon-circle i {
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .hero-icon-item span {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        /* Product Sections */
+        .product-section {
+            padding: 5rem 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .product-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-section:nth-child(even) {
+            background: var(--white);
+        }
+
+        .product-section:nth-child(odd) {
+            background: var(--very-light-green);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .product-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--light-green), var(--medium-green));
+            border-radius: 30px;
+            margin-bottom: 1.5rem;
+            transform: rotate(-5deg);
+            transition: all 0.4s ease;
+        }
+
+        .product-section.visible .product-icon {
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0) rotate(-5deg);
+            }
+            50% {
+                transform: scale(1.1) rotate(-5deg);
+            }
+            100% {
+                transform: scale(1) rotate(-5deg);
+            }
+        }
+
+        .product-icon:hover {
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        .product-icon i {
+            font-size: 3rem;
+            color: var(--white);
+        }
+
+        .product-header h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+        }
+
+        .product-subtitle {
+            font-size: 1.2rem;
+            color: var(--medium-green);
+            font-weight: 500;
+        }
+
+        .product-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(45, 80, 22, 0.1);
+            line-height: 2;
+            font-size: 1.05rem;
+        }
+
+        .product-section:nth-child(even) .product-content {
+            background: var(--very-light-green);
+        }
+
+        .product-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(45, 80, 22, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(45, 80, 22, 0.15);
+            border-color: var(--light-green);
+        }
+
+        .benefit-card i {
+            font-size: 2.5rem;
+            color: var(--medium-green);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-green);
+        }
+
+        .benefit-card p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--medium-green) 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '🍄';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.05;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%) rotate(-15deg);
+        }
+
+        .cta-section::after {
+            content: '🍄';
+            position: absolute;
+            font-size: 12rem;
+            opacity: 0.05;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%) rotate(15deg);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h3 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            color: var(--light-green);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-green);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-gold);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 2rem;
+            background: var(--very-light-green);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(45, 80, 22, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(45, 80, 22, 0.2);
+        }
+
+        .contact-card i {
+            font-size: 3rem;
+            color: var(--medium-green);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .contact-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--medium-green);
+        }
+
+        .contact-card p {
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-green);
+            color: var(--light-green);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--medium-green), var(--primary-green));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(45, 80, 22, 0.3);
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(45, 80, 22, 0.4);
+        }
+
+        .scroll-top i {
+            font-size: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, var(--primary-green) 0%, var(--medium-green) 100%);
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease, padding 0.4s ease;
+                box-shadow: 0 10px 30px rgba(45, 80, 22, 0.2);
+            }
+
+            nav.active {
+                max-height: 400px;
+                padding: 1.5rem 0;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+                align-items: center;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-menu li a {
+                display: block;
+                padding: 1rem;
+                width: 100%;
+            }
+
+            .nav-menu li a::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+
+            .contact-header {
+                padding: 0.6rem 1.2rem;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-icons {
+                gap: 2rem;
+            }
+
+            .product-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .product-header h3 {
+                font-size: 2rem;
+            }
+
+            .product-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .product-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h3 {
+                font-size: 1.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+        }
+    </style>
+<script src="https://puc.poecdn.net/authenticated_preview_page/syncedState.3f7572448765332f3047.js"></script></head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <div class="logo-text">
+                    <h1>Trại Nấm 2 Hạnh</h1>
+                    <p>Phước Tân, Đồng Nai</p>
+                </div>
+            </div>
+            <nav id="nav">
+                <ul class="nav-menu">
+                    <li><a href="#nam-bao-ngu">Nấm Bào Ngư Tươi</a></li>
+                    <li><a href="#phoi-nam">Phôi Nấm Tự Trồng</a></li>
+                    <li><a href="#nam-chien">Nấm Chiên Giòn</a></li>
+                    <li><a href="#contact">Liên Hệ</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="contact-header">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:0985351162">0985 351 162</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Nơi Thiên Nhiên Ban Tặng<br>Tình Yêu Vun Trồng</h2>
+            <p class="hero-tagline">Mang khu vườn xanh mát vào căn bếp nhỏ của bạn</p>
+            <p class="hero-description">
+                Bạn đã bao giờ cảm thấy cuộc sống bận rộn đang cuốn bạn đi, khiến bạn quên mất hương vị của những bữa ăn thật sự tươi ngon, thật sự an lành? Giữa bộn bề lo toan, liệu có khoảnh khắc nào bạn ước mình có thể tìm thấy một món ăn vừa ngon miệng lại vừa không phải lo nghĩ về sức khỏe?
+            </p>
+            <div class="hero-icons">
+                <div class="hero-icon-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <span>100% Tự Nhiên</span>
+                </div>
+                <div class="hero-icon-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <span>Vun Trồng Tận Tâm</span>
+                </div>
+                <div class="hero-icon-item">
+                    <div class="icon-circle">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <span>An Toàn Tuyệt Đối</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product 1: Nấm Bào Ngư Tươi -->
+    <section class="product-section" id="nam-bao-ngu">
+        <div class="container">
+            <div class="product-header">
+                <div class="product-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h3>Nấm Bào Ngư Tươi Rói</h3>
+                <p class="product-subtitle">Sự tinh túy của thiên nhiên trong từng tai nấm</p>
+            </div>
+            <div class="product-content">
+                <p>
+                    Từng tai nấm mập mạp, trắng ngần, mang theo hương vị thanh ngọt đặc trưng của đất trời. Chỉ cần vài phút chế biến, từ món canh nấm thanh mát, nấm xào tỏi thơm lừng, đến lẩu nấm nghi ngút khói... mỗi món ăn đều trở thành một tác phẩm nghệ thuật, một lời yêu thương bạn gửi gắm đến gia đình mình.
+                </p>
+            </div>
+            <div class="product-benefits">
+                <div class="benefit-card">
+                    <i class="fas fa-utensils"></i>
+                    <h4>Cho Người Nội Trợ</h4>
+                    <p>Bí quyết giữ lửa cho căn bếp, mang đến những bữa cơm tròn vị, đậm đà cho gia đình</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h4>Cho Dân Văn Phòng</h4>
+                    <p>Bữa trưa nhanh gọn mà vẫn đủ đầy dinh dưỡng, nạp năng lượng cho cả buổi chiều làm việc</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Sản Phẩm Hữu Cơ</h4>
+                    <p>Nuôi dưỡng trong môi trường sạch sẽ, không hóa chất, giữ trọn sự tinh khiết từ thiên nhiên</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product 2: Phôi Nấm Tự Trồng -->
+    <section class="product-section" id="phoi-nam">
+        <div class="container">
+            <div class="product-header">
+                <div class="product-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Phôi Nấm Tự Trồng</h3>
+                <p class="product-subtitle">Trải nghiệm thu hoạch "thành quả" ngay tại nhà</p>
+            </div>
+            <div class="product-content">
+                <p>
+                    Hãy tưởng tượng, mỗi sáng thức dậy, bạn nhìn thấy những chùm nấm non mơn mởn nhú lên từ phôi nấm mình tự tay chăm sóc. Cảm giác đó không chỉ là niềm vui, mà còn là sự kết nối sâu sắc với thiên nhiên, là một liệu pháp tinh thần tuyệt vời sau những giờ làm việc căng thẳng. Chỉ cần một chút nước, một chút ánh sáng, và sự kiên nhẫn, bạn sẽ có ngay những tai nấm tươi ngon nhất, an toàn nhất, ngay tại ban công hay góc bếp nhà mình.
+                </p>
+            </div>
+            <div class="product-benefits">
+                <div class="benefit-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h4>Tự Tay Chăm Sóc</h4>
+                    <p>Chuẩn bị thực phẩm sạch cho gia đình, kiểm soát chất lượng từ A đến Z</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-spa"></i>
+                    <h4>Liệu Pháp Tinh Thần</h4>
+                    <p>Kết nối với thiên nhiên, tìm một thú vui tao nhã sau giờ làm việc căng thẳng</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-child"></i>
+                    <h4>Giáo Dục Gia Đình</h4>
+                    <p>Dạy con về nguồn gốc thực phẩm, nuôi dưỡng tình yêu thiên nhiên từ bé</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product 3: Nấm Chiên Giòn -->
+    <section class="product-section" id="nam-chien">
+        <div class="container">
+            <div class="product-header">
+                <div class="product-icon">
+                    <i class="fas fa-cookie-bite"></i>
+                </div>
+                <h3>Nấm Chiên Giòn</h3>
+                <p class="product-subtitle">Món ăn vặt "giòn tan" vừa ngon vừa lành</p>
+            </div>
+            <div class="product-content">
+                <p>
+                    Cuộc sống chỉ cần một chút "giòn tan" để thêm phần thú vị! Không còn những món ăn vặt đầy dầu mỡ, nhiều phụ gia khiến bạn phải băn khoăn. Nấm chiên giòn của chúng tôi là sự kết hợp hoàn hảo giữa vị giòn rụm khó cưỡng và hương vị nấm bào ngư tự nhiên, thanh đạm. Từng miếng nấm được chiên vàng ươm, tẩm ướp vừa vặn, tan chảy trong miệng, mang đến cảm giác thỏa mãn mà không hề gây nặng bụng.
+                </p>
+            </div>
+            <div class="product-benefits">
+                <div class="benefit-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>Tiện Lợi</h4>
+                    <p>Món ăn vặt "chân ái" cho dân văn phòng những lúc đói bụng giữa giờ</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-film"></i>
+                    <h4>Nhâm Nhi</h4>
+                    <p>Món nhâm nhi tuyệt vời khi xem phim, thư giãn cùng gia đình</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h4>Sạch &amp; Lành</h4>
+                    <p>Thưởng thức đồ ăn vặt mà vẫn đảm bảo tiêu chí "sạch" và "lành"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h3>Đừng Chần Chừ Nữa!</h3>
+            <p>
+                Trải nghiệm trọn vẹn sức khỏe và hạnh phúc cùng Trại Nấm 2 Hạnh. Dù bạn muốn những tai nấm bào ngư tươi rói cho bữa cơm gia đình, muốn tự tay vun trồng phôi nấm để cảm nhận sự kỳ diệu của thiên nhiên, hay đơn giản là tìm một món ăn vặt giòn tan, bổ dưỡng – chúng tôi đều có.
+            </p>
+            <div class="cta-buttons">
+                <a href="tel:0985351162" class="btn btn-primary">
+                    <i class="fas fa-phone-alt"></i>
+                    Gọi Ngay: 0985 351 162
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Đến Thăm Trại Nấm
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="product-header">
+                <h3>Liên Hệ Với Chúng Tôi</h3>
+                <p class="product-subtitle">Sức khỏe và hạnh phúc của bạn là niềm vui của chúng tôi</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Điện Thoại</h4>
+                    <a href="tel:0985351162">0985 351 162</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Địa Chỉ</h4>
+                    <p>Phước Tân, Đồng Nai</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Trại Nấm 2 Hạnh. All rights reserved.</p>
+        <p class="footer-tagline">Nơi Thiên Nhiên Ban Tặng, Tình Yêu Vun Trồng</p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all product sections
+        document.querySelectorAll('.product-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation delay to benefit cards
+        document.querySelectorAll('.product-section').forEach(section => {
+            const cards = section.querySelectorAll('.benefit-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+            });
+        });
+
+        // Animate benefit cards when section is visible
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.querySelectorAll('.benefit-card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, index * 150);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-section').forEach(section => {
+            cardObserver.observe(section);
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a menu item
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !nav.contains(e.target)) {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+
+
+
+</body></html>

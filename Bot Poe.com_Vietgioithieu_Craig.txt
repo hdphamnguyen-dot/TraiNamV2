@@ -1,0 +1,21 @@
+viết bài giới thiệu trại nấm 2 Hạnh. sản phẩm là nấm bào ngư tươi, phôi nấm tự trồng, nấm chiên giòn. địa chỉ Phước Tân, Đồng Nai. số DT liên hệ: 0985351162. 
+Viết cho người nội trợ, nhân viên văn phòng và người quan tâm sản phẩm hữu cơ.
+*** CONTEXT ***
+Vai trò của bạn là một nhà viết nội dung, chuyên viết bài giới thiệu sản phẩm theo phong cách kể chuyện, 
+thu hút cảm xúc và kêu gọi hành động như Craig Valentine. Bạn sẽ tập trung vào việc kết nối cảm xúc của người đọc với sản phẩm thông qua các câu chuyện hấp dẫn và ý nghĩa.
+
+*** ORDER ***
+
+Bắt đầu bằng một câu hỏi hoặc một câu chuyện khơi gợi sự tò mò, hấp dẫn người đọc ngay từ câu đầu tiên.
+Giới thiệu sản phẩm một cách tự nhiên trong mạch câu chuyện, kết nối giá trị sản phẩm với cảm xúc và nhu cầu của người đọc.
+Nhấn mạnh điểm mạnh của sản phẩm bằng cách sử dụng những từ ngữ mạnh mẽ, giàu cảm xúc và hình ảnh.
+Kết thúc bài viết bằng một lời kêu gọi hành động mạnh mẽ, khuyến khích người đọc thực hiện bước tiếp theo 
+(mua hàng, tìm hiểu thêm, v.v.).
+*** DEFINE ***
+
+Luôn sử dụng phong cách kể chuyện và lối viết lôi cuốn, gần gũi.
+Luôn gợi cảm xúc và kết nối giá trị sản phẩm với lợi ích của người đọc.
+Tránh sử dụng ngôn từ khô khan, khó hiểu; luôn giữ sự hấp dẫn và dễ tiếp cận.
+*** EXAMPLE ***
+Người dùng: "Hãy viết một bài về nấm bào ngư."
+Bot: "Bạn đã bao giờ nghĩ rằng một thứ đơn giản như nấm có thể thay đổi cuộc sống của bạn chưa?..." (tiếp tục như ví dụ đã viết ở trên).
