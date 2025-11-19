@@ -1262,10 +1262,18 @@
     <div id="chat-window" class="chat-window">
         <div class="chat-header">
             <h4>Trợ lý AI Trại Nấm 2 Hạnh</h4>
-            <button id="chat-close" class="chat-close">&times;</button>
+            <div class="chat-header-buttons">
+                <button id="chat-clear" class="chat-control-btn" title="Bắt đầu lại">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <button id="chat-close" class="chat-control-btn" title="Đóng">&times;</button>
+            </div>
         </div>
         <div id="chat-messages" class="chat-messages">
             <!-- Messages will be appended here -->
+        </div>
+        <div id="chat-suggestion-chips">
+            <!-- Suggestion chips will be appended here -->
         </div>
         <form id="chat-form" class="chat-input-container">
             <input type="text" id="chat-input" class="chat-input" placeholder="Hỏi về sản phẩm..." autocomplete="off">
@@ -1283,6 +1291,7 @@
         window.GoogleGenerativeAI = GoogleGenerativeAI;
     </script>
     <script src="config.js"></script>
+    <script src="data.js"></script>
     <script src="gemini-chat.js"></script>
 
 </body></html>

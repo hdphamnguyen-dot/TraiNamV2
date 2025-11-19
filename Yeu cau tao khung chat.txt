@@ -2,3 +2,20 @@ Hãy giúp tôi cải tiến webaap html js này @/poe-preview.html .
 Thêm tính năng chat (biểu tượng ở góc bên phải, khi bấm vào mở ra cửa sổ chat với AI). Kết nối trực tiép với google gemini API. 
 Sử dụnh model gemini flash 2.5. Tôi sẽ điền API key ở 1 file khác bên ngoài. 
 **Thêm file js mới cho tính năng này**
+
+
+=====
+
+
+bạn có thấy giao diện phần chat trong trang @poe-preview.html đã chuyên nghiệp và phù hợp với   │
+│   trang hay chưa? hãy đề suất ý tưởng cải thiện 
+
+======
+để giúp AI có thể trả lời chính xác hơn về thông tin trại nấm. HÃy giúp tôi dựa vào nội dung tại
+  @poe-preview.html tạo ra 1 file tên là data.js chứa đầy đủ thông tin của trại nấm, có phấn loại rõ
+  ràng. và sau đó khi gửi yêu cầu tới AI thì cũng sẽ gửi kèm nội dung data này @/js/chat.js
+
+====
+hiện tại mỗi tin nhắn của AI hơi dài, bạn hãy sửa lại để AI trả lời ngắn hơn và có thể hỏi lại  │
+│   1 số câu hỏi để hiểu thêm về người dùng, từ đó có thể tư vấn hiệu quả hơn, tránh đưa quá nhiều  │
+│   thông tin cùng 1 lúc. Hãy làm cho giống như 1 cuộc hội thoại 
