@@ -849,11 +849,13 @@
         }
 
         .message {
-            max-width: 80%;
+            max-width: 95%;
             padding: 0.7rem 1rem;
             border-radius: 15px;
             line-height: 1.5;
-            word-wrap: break-word;
+            font-size: 0.95rem; /* Cỡ chữ nhỏ hơn một chút */
+            overflow-wrap: break-word; /* Thuộc tính chuẩn để ngắt chữ */
+            word-break: normal;     /* Ngăn chặn việc tự ý ngắt từ */
         }
 
         .message.user {
@@ -861,6 +863,9 @@
             background: var(--light-green);
             color: var(--text-dark);
             border-bottom-right-radius: 5px;
+            /* Explicitly add wrapping rules to override any conflicting styles */
+            overflow-wrap: break-word;
+            word-break: normal;
         }
 
         .message.ai {
@@ -1276,7 +1281,7 @@
             <!-- Suggestion chips will be appended here -->
         </div>
         <form id="chat-form" class="chat-input-container">
-            <input type="text" id="chat-input" class="chat-input" placeholder="Hỏi về sản phẩm..." autocomplete="off">
+            <textarea id="chat-input" class="chat-input" placeholder="Hỏi về sản phẩm..." rows="1" autocomplete="off"></textarea>
             <button type="submit" id="chat-send" class="chat-send">
                 <i class="fas fa-paper-plane"></i>
             </button>

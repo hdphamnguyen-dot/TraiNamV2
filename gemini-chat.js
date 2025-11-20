@@ -154,6 +154,15 @@ Nếu câu hỏi của khách hàng không liên quan đến thông tin được
         }
     });
 
+    // Handle Enter to send, Shift+Enter for new line
+    chatInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault(); // Prevent new line
+            // Trigger the form's submit event
+            chatForm.dispatchEvent(new Event('submit', { cancelable: true }));
+        }
+    });
+
     suggestionChipsContainer.addEventListener('click', (e) => {
         if (e.target.classList.contains('suggestion-chip')) {
             const query = e.target.textContent;

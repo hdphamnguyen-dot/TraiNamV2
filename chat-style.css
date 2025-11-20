@@ -138,7 +138,7 @@
 .message-container {
     display: flex;
     gap: 10px;
-    max-width: 90%;
+    max-width: 98%;
     opacity: 0;
     transform: translateY(10px);
     animation: messageFadeIn 0.4s ease forwards;
@@ -177,6 +177,12 @@
 .message-content {
     display: flex;
     flex-direction: column;
+}
+
+/* Fix for flexbox row-reverse text wrapping bug */
+.message-container.user .message-content {
+    text-align: left;
+    min-width: 0;
 }
 
 .message {
@@ -294,6 +300,11 @@
     font-size: 1rem;
     outline: none;
     transition: border-color 0.3s ease;
+    min-height: 44px; /* Matches send button height for alignment */
+    height: auto;
+    box-sizing: border-box; /* Include padding in height calculation */
+    resize: vertical; /* Allow user to resize vertically */
+    overflow-y: auto; /* Add scroll if content exceeds available height */
 }
 
 .chat-input:focus {
