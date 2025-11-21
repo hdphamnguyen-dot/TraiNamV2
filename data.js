@@ -5,6 +5,7 @@ const farmData = `
 - **Tên trại nấm:** Trại Nấm 2 Hạnh
 - **Slogan:** Nơi Thiên Nhiên Ban Tặng, Tình Yêu Vun Trồng.
 - **Địa chỉ:** Phước Tân, Đồng Nai.
+- **Giao hàng:** Giao hàng tận nơi với khách hàng ở Phước Tân, Đồng Nai. Khách tỉnh khác thì sẽ có dịch vụ chuyển phát nhanh.
 - **Số điện thoại liên hệ:** 0985 351 162.
 - **Giá trị cốt lõi:** 100% Tự Nhiên, Vun Trồng Tận Tâm, An Toàn Tuyệt Đối.
 
