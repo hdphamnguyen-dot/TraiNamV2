@@ -946,6 +946,100 @@
                 transform: translateX(0);
             }
         }
+
+        /* Ebook Section */
+        .ebook-section {
+            padding: 5rem 2rem;
+            background: var(--very-light-green);
+        }
+
+        .ebook-form-container {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            text-align: center;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(45, 80, 22, 0.1);
+        }
+
+        .ebook-form-container p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+        }
+
+        #ebook-form {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            gap: 10px;
+            justify-content: center;
+        }
+
+        #ebook-email {
+            flex-grow: 1;
+            border: 2px solid var(--light-green);
+            border-radius: 50px;
+            padding: 1rem 1.5rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+            min-width: 250px; /* Minimum width for the email input */
+        }
+
+        #ebook-email:focus {
+            border-color: var(--medium-green);
+        }
+
+        #ebook-submit {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            border: none;
+            background: var(--primary-green);
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        #ebook-submit:hover {
+            background: var(--medium-green);
+            transform: translateY(-2px);
+        }
+
+        #ebook-form-status {
+            margin-top: 1rem;
+            font-weight: 500;
+            min-height: 1.2em; /* Reserve space for the status message */
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            background: var(--primary-green);
+            color: var(--white);
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .download-btn:hover {
+            background: var(--medium-green);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .download-btn i {
+            margin-left: 10px;
+        }
     </style>
 <script src="https://puc.poecdn.net/authenticated_preview_page/syncedState.3f7572448765332f3047.js"></script></head>
 <body>
@@ -964,7 +1058,7 @@
                     <li><a href="#nam-bao-ngu">Nấm Bào Ngư Tươi</a></li>
                     <li><a href="#phoi-nam">Phôi Nấm Tự Trồng</a></li>
                     <li><a href="#nam-chien">Nấm Chiên Giòn</a></li>
-                    <li><a href="#contact">Liên Hệ</a></li>
+
                 </ul>
             </nav>
             <div class="hamburger" id="hamburger">
@@ -1127,32 +1221,27 @@
                     <i class="fas fa-phone-alt"></i>
                     Gọi Ngay: 0985 351 162
                 </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Đến Thăm Trại Nấm
+                <a href="#ebook-gift" class="btn btn-secondary">
+                    <i class="fas fa-gift"></i>
+                    Nhận Ebook Miễn Phí
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
+    <!-- Ebook Gift Section -->
+    <section class="ebook-section" id="ebook-gift">
         <div class="container">
             <div class="product-header">
-                <h3>Liên Hệ Với Chúng Tôi</h3>
-                <p class="product-subtitle">Sức khỏe và hạnh phúc của bạn là niềm vui của chúng tôi</p>
+                <div class="product-icon" style="transform: rotate(5deg);">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Quà Tặng Miễn Phí</h3>
+                <p class="product-subtitle">Ebook độc quyền: "Kỹ Thuật Chăm Sóc Nấm Tại Nhà"</p>
             </div>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <i class="fas fa-phone-alt"></i>
-                    <h4>Điện Thoại</h4>
-                    <a href="tel:0985351162">0985 351 162</a>
-                </div>
-                <div class="contact-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h4>Địa Chỉ</h4>
-                    <p>Phước Tân, Đồng Nai</p>
-                </div>
+            <div class="ebook-form-container">
+                <p>Nhấn vào nút bên dưới để tải ngay Ebook và những bí quyết chăm sóc nấm không có ở nơi khác. Hoàn toàn miễn phí!</p>
+                <a href="Bi-Quyet-Cham-Soc-Nam-Tai-Nha.txt" class="download-btn" download>Tải Về Ngay <i class="fas fa-download"></i></a>
             </div>
         </div>
     </section>
@@ -1257,7 +1346,7 @@
             }
         });
     </script>
-    <script src="chat.js" type="module"></script>
+
 
     <!-- Chatbot UI Elements -->
     <div id="chat-icon" class="chat-icon">
@@ -1298,5 +1387,32 @@
     <script src="config.js"></script>
     <script src="data.js"></script>
     <script src="gemini-chat.js"></script>
+
+
+
+<style>
+.download-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    background: var(--primary-green);
+    color: var(--white);
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.download-btn:hover {
+    background: var(--medium-green);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.download-btn i {
+    margin-left: 10px;
+}
+</style>
 
 </body></html>
